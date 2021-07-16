@@ -1,24 +1,11 @@
 package com.example.a1l1;
 
-<<<<<<< HEAD
-public class CalculLogic {
-    private int firstArg;
-    private int secondArg;
-    private StringBuilder inputStr = new StringBuilder();
-    private int actionSelected;
-=======
-import java.io.Serializable;
-
 public class CalculLogic {
 
     private int firstArg;
     private int secondArg;
-
     private StringBuilder inputStr = new StringBuilder();
-
     private int actionSelected;
-
->>>>>>> origin/lesson3
     private State state;
 
     private enum State {
@@ -147,7 +134,6 @@ public class CalculLogic {
             case R.id.button_division:
             default:
                 return '/';
-
         }
     }
 
@@ -156,4 +142,3 @@ public class CalculLogic {
         inputStr.setLength(0);
     }
 }
-

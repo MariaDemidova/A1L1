@@ -13,4 +13,21 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="CalcTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:textSize">@dimen/buttonTextSize</item>
+        <item name="android:fontFamily">@font/otomanopee_one_regular</item>
+        <item name="android:layout_marginEnd">@dimen/margin</item>
+        <item name="android:layout_marginStart">@dimen/margin</item>
+        <item name="android:layout_marginTop">@dimen/margin</item>
+    </style>
+
+    <style name="ColorForButtonsNum">
+        <item name="backgroundTint">#828288</item>
+    </style>
+
+    <style name="ColorForButtonsAct">
+        <item name="backgroundTint">#F44336</item>
+    </style>
+
 </resources>
