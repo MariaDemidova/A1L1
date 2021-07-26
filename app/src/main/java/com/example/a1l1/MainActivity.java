@@ -2,12 +2,20 @@ package com.example.a1l1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
+import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) setTheme(R.style.dark);
+        else setTheme(R.style.CalcTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -44,10 +56,16 @@ public class MainActivity extends AppCompatActivity {
         text = findViewById(R.id.text);
         calculator = new CalculLogic();
 
+        findViewById(R.id.settings_button).setOnClickListener(v -> {
+            Intent intent = new Intent(this, SettingsActivity.class );
+            startActivity(intent);
+        });
+
         View.OnClickListener numberButtonClickListener = v -> {
             calculator.buttonPressed(v.getId());
             text.setText(calculator.getText());
         };
+
         View.OnClickListener actionClickListener = v -> {
             calculator.actionPressed(v.getId());
             text.setText(calculator.getText());
@@ -76,5 +94,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         text.setText(savedInstanceState.getString(PARAM));
+    }
+    private void restartApp() {
+        recreate();
     }
 }

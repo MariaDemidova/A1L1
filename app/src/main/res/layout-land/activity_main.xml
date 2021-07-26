@@ -10,12 +10,20 @@
         android:scaleType="centerCrop"
         android:src="@drawable/back2" />
 
+    <ImageButton
+        android:id="@+id/settings_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/settings"
+        android:layout_alignParentEnd="true"
+        style="@style/CalcTheme"/>
+
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/layoutForButtons"
-        android:background="#20ffffff"
+        android:background="#40ffffff"
         android:gravity="end|bottom"
         android:textColor="@color/black"
         android:textSize="30sp"
